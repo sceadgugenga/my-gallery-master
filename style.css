@@ -1,8 +1,10 @@
 :root {
   --primary-font: "Montserrat", sans-serif;
   --stat-box-bg-color: #e5e5e5;
-  --stat-number-color: #4e5150;
+  --accent-color: #4e5150;
   --stat-type-color: #bdbdbd;
+  --footer-color: #828282;
+  --location-color: #a9a9a9;
 }
 
 body {
@@ -29,38 +31,44 @@ body {
   justify-content: center;
 }
 .name {
-  font-size: clamp(18px, 3vw, 24px);
+  font-size: clamp(14px, 3vw, 24px);
   font-weight: 500;
   text-align: center;
   line-height: 2em;
+  color: var(--accent-color);
 }
 .location {
-  font-size: clamp(12px, 1.25vw, 14px);
-  font-weight: 500;
+  font-size: clamp(10px, 1.25vw, 14px);
+  font-weight: 600;
   text-align: center;
+  color: var(--location-color);
 }
 .picture > img {
-  width: 26.75vw;
   border-radius: 10px;
+  width: calc(7em + 5.21vw);
+  min-width: 7.63em;
 }
 
 .stat-box {
-  border-radius: 10px;
   background: var(--stat-box-bg-color);
-
   border-radius: 12px;
-  padding: 1em 0.55em;
+  /* width: calc(0.75em + 8vw); */
+  flex: 1;
+  padding-top: calc(0.41em + 0.5vw);
+  padding-bottom: calc(0.41em + 0.5vw);
+  min-width: 79.45px;
+  max-width: 133.8px;
 }
-
 .content {
   display: grid;
-  /* width: 66.4vw; */
+  width: calc(42rem - 0.1vw);
   justify-items: center;
   align-items: center;
+  margin-top: calc(0.6em + 2.19vw);
 }
 .top-wrapper {
-  width: 28vw;
-  margin-bottom: 4em;
+  /* width: 28vw; */
+  margin-bottom: calc(1em + 4vw);
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -68,7 +76,7 @@ body {
 
 .numbers {
   text-align: center;
-  color: var(--stat-number-color);
+  color: var(--accent-color);
   font-weight: 600;
   font-size: clamp(12px, 1.5vw, 18px);
 }
@@ -81,9 +89,9 @@ body {
 .gallery {
   display: grid;
 
-  grid-auto-rows: auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 2vw;
-  width: 66.7vw;
 }
 .item1 {
   grid-area: 1/1/2/2;
@@ -107,8 +115,26 @@ body {
 
 .item > img {
   width: 100%;
+  border-radius: 14px;
 }
-.stat-box.posts {
-  padding-left: 1.361em;
-  padding-right: 1.361em;
+footer {
+  font-size: 0.88em;
+  color: var(--footer-color);
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  margin-top: calc(1em + 2vw);
+}
+.footer-content > a {
+  font-weight: 700;
+  color: var(--footer-color);
+  text-decoration: none;
+}
+@media (min-width: 1011px) {
+  .content {
+    width: 66.4vw;
+  }
+  .top-wrapper {
+    width: 28vw;
+  }
 }
